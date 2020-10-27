@@ -8,7 +8,7 @@
 	branch = master
 [submodule "amundsenmetadatalibrary"]
 	path = amundsenmetadatalibrary
-	url = https://github.com/amundsen-io/amundsenmetadatalibrary
+	url = https://github.com/ant-on-su/amundsendatabuilder
 	branch = master
 [submodule "amundsensearchlibrary"]
 	path = amundsensearchlibrary
