@@ -176,7 +176,7 @@ frontEnd:
   ##
   ## frontEnd.serviceType -- The frontend service type. See service types [ref](https://kubernetes.io/docs/concepts/services-networking/service/#publishing-services-service-types)
   ##
-  serviceType: ClusterIP
+  serviceType: LoadBalancer
   ##
   ## frontEnd.image -- The image of the frontend container.
   ##
@@ -302,12 +302,14 @@ neo4j:
   ##
   ## neo4j.persistence -- Neo4j persistence. Turn this on to keep your data between pod crashes, etc. This is also needed for backups.
   ##
-  persistence: {}
-  #  storageClass: gp2
-  #  size: 10Gi
-  #  accessMode: ReadWriteMany
+  persistence:
+   storageClass: ebs-sc
+   size: 10Gi
+   accessMode: ReadWriteMany
   #  efs:
   #    dns:
+  serviceType: LoadBalancer
+
 
   ##
   ## neo4j.backup -- If enabled is set to true, make sure and set the s3 path as well.
@@ -373,7 +375,7 @@ elasticsearch:
   client:
     ## elasticsearch.client.replicas -- only running amundsen on 1 client replica
     replicas: 1
-  #  serviceType: LoadBalancer
+  # serviceType: LoadBalancer
   #  serviceAnnotations:
   #    external-dns.alpha.kubernetes.io/hostname: amundsen-elasticsearch.dev.teamname.company.com
   #    service.beta.kubernetes.io/aws-load-balancer-internal: 0.0.0.0/0
