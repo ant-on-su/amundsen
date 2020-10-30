@@ -180,11 +180,13 @@ frontEnd:
   ##
   ## frontEnd.image -- The image of the frontend container.
   ##
-  image: amundsendev/amundsen-frontend
+  image: ant1on1su/amundsenfrontend 
+  #amundsendev/amundsen-frontend
   ##
   ## frontEnd.imageTag -- The image tag of the frontend container.
   ##
-  imageTag: 2.3.0
+  imageTag: v1
+  #2.3.0
   ##
   ## frontEnd.servicePort -- The port the frontend service will be exposed on via the loadbalancer.
   ##
@@ -302,10 +304,10 @@ neo4j:
   ##
   ## neo4j.persistence -- Neo4j persistence. Turn this on to keep your data between pod crashes, etc. This is also needed for backups.
   ##
-  persistence:
-   storageClass: ebs-sc
-   size: 10Gi
-   accessMode: ReadWriteMany
+  persistence: {}
+    # storageClass: gp2
+    # size: 10Gi
+    # accessMode: ReadWriteMany
   #  efs:
   #    dns:
   serviceType: LoadBalancer
@@ -375,7 +377,7 @@ elasticsearch:
   client:
     ## elasticsearch.client.replicas -- only running amundsen on 1 client replica
     replicas: 1
-  # serviceType: LoadBalancer
+    serviceType: LoadBalancer
   #  serviceAnnotations:
   #    external-dns.alpha.kubernetes.io/hostname: amundsen-elasticsearch.dev.teamname.company.com
   #    service.beta.kubernetes.io/aws-load-balancer-internal: 0.0.0.0/0
