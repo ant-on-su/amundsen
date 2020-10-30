@@ -304,10 +304,11 @@ neo4j:
   ##
   ## neo4j.persistence -- Neo4j persistence. Turn this on to keep your data between pod crashes, etc. This is also needed for backups.
   ##
-  persistence: {}
-    # storageClass: gp2
-    # size: 10Gi
-    # accessMode: ReadWriteMany
+  persistence:
+    storageClass: efs-sc
+    size: 10Gi
+    accessMode: ReadWriteMany
+    volumeHandle: fs-ef395125
   #  efs:
   #    dns:
   serviceType: LoadBalancer
